@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rabin-karp</title>
+    <title>Boyer Moore</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -31,14 +31,14 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Rabin-karp</a>
+	      <a class="navbar-brand" href="index.html">Boyer Moore</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="contact.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="#section2" class="nav-link" id="about">About</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -50,22 +50,12 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Rabin-karp Algorithm</h1>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Rabin Karp algorithm matches the hash value of the pattern with the hash value of current substring of text, and if the hash values match then only it starts matching individual characters</p>
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Boyer Moore Algorithm</h1>
+            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">It preporcesses the pattern and creates different arrays for both heuristics. At every step, it slides the pattern by max of the slides suggested by the two heuristics. So it uses best of the two heuristics at every step.</p>
           </div>
         </div>
       </div>
     </div>
-
-		<section class="ftco-intro">
-			<div class="container">
-				<div class="row justify-content-start">
-					<div class="col-md-9">
-						<h1>We're <strong>Traveler</strong> &amp; <strong>Blogger</strong> from Paris, Italy Who Loves Documenting Adventures &amp; Discoveries Around the World</h1>
-					</div>
-				</div>
-			</div>
-		</section>
 
     <section class="ftco-section">
     	<div class="container">
@@ -74,16 +64,184 @@
     				<div class="row">
     					<div class="col-md-12">
     						<div class="blog-entry ftco-animate">
-    							<a href="#" class="img" style="background-image: url(images/image_1.jpg);"></a>
+
     							<div class="text pt-2 mt-5">
-				          	<span class="big">South America</span>
-			              <h3 class="mb-4"><a href="#">Hawaii known as the Big Island</a></h3>
-			              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+				          	<span class="big">Pattern Searching</span>
+			              <h3 class="mb-4"><a href="#">Boyer Moore Algorithm</a></h3>
+			              <p class="mb-4">Boyer Moore algorithm starts matching from the last character of the pattern. It preporcesses the pattern and creates different arrays for both heuristics. At every step, it slides the pattern by max of the slides suggested by the two heuristics. So it uses best of the two heuristics at every step.</p>
+                    <p class="mb-4">Boyer Moore is a combination of following two approaches.</p>
+                    <p class="mb-4">1) Bad Character Heuristic</p>
+                    <p class="mb-4">2) Good Suffix Heuristic</p>
+<img src="images/stringmatch.gif" alt="img" width="700" height="300">
 			              <div class="meta-wrap d-md-flex align-items-center">
 			              </div>
 			            </div>
     						</div>
-    					</div>
+                <p>An efficient string matching algorithm that is the standard benchmark
+for practical string-search literature is the Boyer-Moore algorithm. The algorithm is mainly used in computer science. In general, it runs
+faster if the pattern is longer - a feature that is extremely rare in the field
+of algorithms. The reason for that is that the algorithm seems to match on
+the tail of the pattern rather than the head, and to skip along the text in
+jumps of multiple characters rather than searching every single character in
+the text.</p>
+<p>A significantly faster string searching method is to scan the pattern
+from right to left when trying to match it against the text. This can be
+easily seen on the example, where P = BAABBAA, assuming there are
+matches on the sixth and seventh character, but not on the fifth. Notice that
+the pattern can be immediately slided seven positions to the right and can
+move on checking the fourteenth character in the text. This can be done
+because the partial match XAA, where X is not equal to B, does not appear
+elsewhere in the pattern. The pattern could appear somewhere in the text
+later, so there is a need to remember the position to restart the searching
+method if there is a need.</p>
+<p>Another example of Boyer-Moore shifting and searching, is shown in
+Figure 1 where the text (or often called ”haystack”) is T = F INDINAHAY ST ACKNEEDLE and the ”needle” (or the pattern)
+is P = NEEDLE.</p>
+<p>The comparison starts from the rightmost character E
+and it is compared with character N on the fifth position in the text. Since
+N appears in the pattern, the pattern is slided five positions to the right to
+line up the N in the text with the rightmost N in the pattern. The next
+comparison is made with the rightmost E in the pattern with the character
+S on the tenth position in the text. The difference with the mismatched S is
+because S does not appear in the pattern so the pattern is slided six positions
+to the right. The rightmost E in the pattern is matched with the character
+on position 16, where a mismatch exists. N at position 15 is discovered and
+the pattern is slid four positions. Finally, moving from right to left in the
+text at position 20, the searched pattern is discovered within the text. The
+algorithm uses only four comparisons to find the suitable pattern, which is
+much better than with the naive algorithm</p>
+<br>
+<br>
+<img src="images/bm1.png" alt="img" width="700" height="300">
+<p>Figure 1: Simple example for Boyer-Moore algorithm</p>
+<br>
+<br>
+<p> One of the main reasons for the popularity of the Boyer-Moore algorithm is in its preprocessing. The algorithm is suitable for applications when
+the pattern is much shorter than the text. The condition is basically fulfilled
+in almost every searching case, which is why the algorithm often is so used
+in practice and theory.</p>
+<p>There are two variants to perform shifting and preprocessing based on rules
+called: the Bad Character Rule (BCR) and the Good Suffix Rule (GSR).</p>
+<br>
+<p>Each rule has its own advantages and disadvantages, so their names ”good”
+and ”bad”, do not mean that the one is actually better than the other.</p>
+<p><b>The Bad Character Rule (BCR)</b></p>
+<br>
+<h5>Definition :</h5>
+<p><i>This rule reviews the character in the text T where
+comparison failed. When the next occurrence of the character to the left
+is found in the pattern P, then a shift that brings that occurrence in line
+with the mismatched occurrence in T is proposed. If the mismatched
+character does not occur to the left in P, a new shift is proposed that
+moves entire P past the point of mismatch.</i></p>
+<br>
+<br>
+<img src="images/bm2.png" alt="img" width="700" height="300">
+<p><i>Figure 2: Example of BCR, where b is a mismatched character. Skip alignments until (a) b matches its opposite in P or (b) P moves past b.</i></p>
+<br>
+<br>
+<p>To estimate BCR’s time complexity, we can use a 2D array where
+the first dimension is indexed by the index of the character c in the
+alphabet, and the second dimension is indexed by the index i from the
+pattern. BCR will return the occurrence c of P with the index j < i
+(or -1 if there is a mismatch). The time complexity of BCR is thus
+O(1), a constant, which is in practice the best amount the searching
+algorithms can have. The space complexity of BCR is O(k*n), where
+k is the size (the number of characters) of the alphabet.</p>
+<br>
+<p><b>The Good Suffix Rule (GSR)</b></p>
+<p>This rule is the advantage of the Boyer-Moore algorithm, searching
+from right to left.</p>
+<br>
+<h5>Definition :</h5>
+<p><i>Suppose that for a given alignment of P and T, a
+substring t of T matches a suffix of P, but a mismatch occurs at the
+next comparison to the left. Then find, if it exists, the rightmost copy
+t’ of t in P such that t’ is not a suffix of P and the character to the left
+of t’ in P differs from the character to the left of t in P. Shift P to the
+right so that substring t’ in P aligns with substring t in T. If t’ does
+not exist, then shift the left end of P past the left end of t in T by the
+least amount so that a prefix of the shifted pattern matches a suffix of
+t in T. If no such shift is possible, then shift P by x (x is the length of
+the suffix) places to the right. If an occurrence of P is found, then shift
+P by the least amount so that a proper prefix of the shifted P matches
+a suffix of the occurrence of P in T. If no such shift is possible, then
+shift P by x places, that is, shift P past t.</i></p>
+<br>
+<br>
+<img src="images/bm3.png" alt="img" width="600" height="500">
+<p><i>Figure 3: Example for GSR, where t is a substring of T and matches a
+suffix of P. Skip alignments until t matches the opposite character in P (a),
+a prefix of P matches a suffix of t (b) or P moves past the first matching
+substring t(c).</i></p>
+<br>
+<br>
+<p>To determine GSR’s time complexity of the processing, we need two
+arrays: L for the general case, and H for either when the general returns
+a meaningless result or a match occurs.
+It is known that for each i in L, the index i is the largest position less
+than n and it is proven that the pattern P[i, ..., n] matches a suffix
+P[1, ..., L[i]] and it is not equal to P[i − 1]. If this condition is not
+satisfied, current index in the array is equal to zero. The index in H
+is determined as the length of the largest suffix in P, which is at the
+same time a prefix of P.</p>
+<p>All of this leads to a linear time and space complexity, O(n), where n
+is the length of the text.</p>
+<br>
+<br>
+<p>The pseudocode of the algorithm contains two functions in addition to
+the main one: the function for computing the good suffix and the function for
+computing the last occurrence. The input consists of the substring/pattern,
+the text, and an alphabet Σ. Here is the pseudocode.</p>
+<br>
+<h5>Pseudocode :</h5>
+<br>
+<pre>BOYER-MOORE ALGORITHM(P,T,Sigma)
+m = length(P)
+n = length(T)
+lambda = compute last occurrence(P,m,Sigma)
+gamma = compute good suffix(P,m)
+s = 0
+while s <= n-m
+do j = m
+while j>0 and P[j] = T[s+j]
+do j = j-1
+if j = 0
+then print "The pattern occurs at shift" s
+s = s + gamma[0]
+else s = s + max(gamma[j],lambda[T[s+j]])
+COMPUTE LAST OCCURRENCE(P,m,Sigma)
+for each a in Sigma
+do lambda[a] = 0
+for j = 1 to m
+do lambda[P[j]] = j
+return
+COMPUTE GOOD SUFFIX(P,m)
+pi = compute prefix function(P)
+P’ = reverse(P)
+pi’ = compute prefix function(P’)
+for j = 0 to m
+do gamma[j] = m- pi[m]
+for l = 1 to m
+do j = m - pi’[l]
+if gamma[j] > l - pi’[l]
+then gamma[j] = l - pi’[l]
+return</pre>
+<br>
+<h5>Video Demonstration :</h5>
+<br>
+                <iframe width="660" height="355" src="https://www.youtube.com/embed/ZMQWjslBlbU?start=40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
+                <br>
+                <h5>Complexity :</h5>
+                <p>To sum up, the algorithm’s time complexity is O(n+m), if and only if the
+pattern does not appear in the text. However, this is not the best case scenario, because the main aim of this algorithm is to find an existing substring
+in the text. The worst case time complexity when the substring does appear
+in the text is O(n*m). Although this is the same time complexity as the
+time complexity of the naive algorithm, Boyer-Moore algorithm is in practice better due to its searching from tail to head, preprocessing, omitting
+unnecessary comparisons, etc.</p>
+<br>
+              </div>
 
     				</div>
     			</div><!-- END-->
@@ -91,9 +249,14 @@
 
 
             <div class="sidebar-box ftco-animate">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div>
+              <h3>Input and Output :</h3>
+              <pre>Input:
+Main String: “ABAAABCDBBABCDDEBCABC”, Pattern “ABC”
+Output:
+Pattern found at position: 4
+Pattern found at position: 10
+Pattern found at position: 18</pre>
+              </div>
           </div><!-- END COL -->
     		</div>
     	</div>
@@ -104,13 +267,8 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Explorer</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
+              <h2 class="ftco-heading-2">About</h2>
+              <p>Developed to Illustrate and help understand Boyer Moore Pattern Searching Algorithm with relevant examples.</p>
             </div>
           </div>
           <div class="col-md">
@@ -123,22 +281,19 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Presented by,</h2>
+              <h2 class="ftco-heading-2">Mrs. Disha Deotale</h5>
             	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
 	            </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 text-center">
+          <div class="col-md-12 text-center" id="section2">
 
             <p>
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+  <p style="color: white;">www.boyermoore.ml</p>
           </div>
         </div>
       </div>
@@ -167,6 +322,31 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("#about").on('click', function(event) {
 
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
   </body>
 </html>
