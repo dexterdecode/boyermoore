@@ -1,83 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Boyer Moore</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+<title>Boyer Moore</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Unicat project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+</head>
+<style>
+input[type=text], select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+#divv {
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 20px;
+}
+</style>
+<body>
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+<div class="super_container">
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Header -->
 
-    <link rel="stylesheet" href="css/aos.css">
+	<header class="header">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+		<!-- Top Bar -->
+		<div class="top_bar">
+			<div class="top_bar_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+								<ul class="top_bar_contact_list">
+									<li><div class="question">String Matching Algorithm</div></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+		<!-- Header Content -->
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="logo_container">
+								<a href="#">
+									<div class="logo_text">Boyer<span> Moore</span></div>
+								</a>
+							</div>
+							<nav class="main_nav_contaner ml-auto">
+							</nav>
 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+		<!-- Header Search Panel -->
+		<div class="header_search_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_search_content d-flex flex-row align-items-center justify-content-end">
+							<form action="#" class="header_search_form">
+								<input type="search" class="search_input" placeholder="Search" required="required">
+								<button class="header_search_button d-flex flex-column align-items-center justify-content-center">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Boyer Moore</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+	<!-- Menu -->
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="#section2" class="nav-link" id="about">About</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="search">
+			<form action="#" class="header_search_form menu_mm">
+				<input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+				<button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+					<i class="fa fa-search menu_mm" aria-hidden="true"></i>
+				</button>
+			</form>
+		</div>
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+				<li class="menu_mm"><a href="index.html">Home</a></li>
+				<li class="menu_mm"><a href="#">About</a></li>
+				<li class="menu_mm"><a href="#">Courses</a></li>
+				<li class="menu_mm"><a href="#">Blog</a></li>
+				<li class="menu_mm"><a href="#">Page</a></li>
+				<li class="menu_mm"><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Boyer Moore Algorithm</h1>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">It preporcesses the pattern and creates different arrays for both heuristics. At every step, it slides the pattern by max of the slides suggested by the two heuristics. So it uses best of the two heuristics at every step.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-lg-8">
-    				<div class="row">
-    					<div class="col-md-12">
-    						<div class="blog-entry ftco-animate">
+	<!-- Features -->
 
-    							<div class="text pt-2 mt-5">
-				          	<span class="big">Pattern Searching</span>
-			              <h3 class="mb-4"><a href="#">Boyer Moore Algorithm</a></h3>
-			              <p class="mb-4">Boyer Moore algorithm starts matching from the last character of the pattern. It preporcesses the pattern and creates different arrays for both heuristics. At every step, it slides the pattern by max of the slides suggested by the two heuristics. So it uses best of the two heuristics at every step.</p>
-                    <p class="mb-4">Boyer Moore is a combination of following two approaches.</p>
-                    <p class="mb-4">1) Bad Character Heuristic</p>
-                    <p class="mb-4">2) Good Suffix Heuristic</p>
-<img src="images/stringmatch.gif" alt="img" width="700" height="300">
-			              <div class="meta-wrap d-md-flex align-items-center">
-			              </div>
-			            </div>
-    						</div>
-                <p>An efficient string matching algorithm that is the standard benchmark
+	<div class="features">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<h2 class="section_title">Boyer Moore Algorithm</h2>
+						<div class="section_subtitle"><p>It preporcesses the pattern and creates different arrays for both heuristics. At every step, it slides the pattern by max of the slides suggested by the two heuristics. So it uses best of the two heuristics at every step.</p></div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<p>Boyer Moore algorithm starts matching from the last character of the pattern. It preporcesses the pattern and creates different arrays for both heuristics. At every step, it slides the pattern by max of the slides suggested by the two heuristics. So it uses best of the two heuristics at every step.</p>
+			<p>Boyer Moore is a combination of following two approaches.</p>
+			<p>1) Bad Character Heuristic</p>
+			<p>2) Good Suffix Heuristic</p>
+			<br>
+			<p>An efficient string matching algorithm that is the standard benchmark
 for practical string-search literature is the Boyer-Moore algorithm. The algorithm is mainly used in computer science. In general, it runs
 faster if the pattern is longer - a feature that is extremely rare in the field
 of algorithms. The reason for that is that the algorithm seems to match on
@@ -228,125 +295,156 @@ if gamma[j] > l - pi’[l]
 then gamma[j] = l - pi’[l]
 return</pre>
 <br>
-<h5>Video Demonstration :</h5>
-<br>
-                <iframe width="660" height="355" src="https://www.youtube.com/embed/ZMQWjslBlbU?start=40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <br>
-                <br>
-                <h5>Complexity :</h5>
-                <p>To sum up, the algorithm’s time complexity is O(n+m), if and only if the
+<h4>Boyre Moore Implementation:</h4>
+<div id="divv">
+  <form>
+    <label for="fname">Input String :</label>
+    <input type="text" id="in" name="input" placeholder="Enter a String (Eg. Monkey eats bananas)">
+
+    <label for="lname">Input Substring :</label>
+    <input type="text" id="in2" name="input" placeholder="Enter a Substring (Eg. eats)">
+    <br>
+		<br>
+		<h4 id="app"></h4>
+
+		<br>
+		<br>
+    <p class="btn btn-primary" id="submitt">Match</p>
+  </form>
+</div>
+		</div>
+	</div>
+
+
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="newsletter_background parallax-window" data-parallax="scroll" data-image-src="images/newsletter.jpg" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter_container d-flex flex-lg-row flex-column align-items-center justify-content-start">
+
+						<!-- Newsletter Content -->
+						<div class="newsletter_content text-lg-left text-center">
+							<div class="newsletter_title">Complexity :</div>
+							<div class="newsletter_subtitle">To sum up, the algorithm’s time complexity is O(n+m), if and only if the
 pattern does not appear in the text. However, this is not the best case scenario, because the main aim of this algorithm is to find an existing substring
 in the text. The worst case time complexity when the substring does appear
 in the text is O(n*m). Although this is the same time complexity as the
 time complexity of the naive algorithm, Boyer-Moore algorithm is in practice better due to its searching from tail to head, preprocessing, omitting
-unnecessary comparisons, etc.</p>
-<br>
-              </div>
+unnecessary comparisons, etc.</div>
+						</div>
 
-    				</div>
-    			</div><!-- END-->
-    			<div class="col-lg-4 sidebar ftco-animate">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<!-- Footer -->
 
-            <div class="sidebar-box ftco-animate">
-              <h3>Input and Output :</h3>
-              <pre>Input:
-Main String: “ABAAABCDBBABCDDEBCABC”, Pattern “ABC”
-Output:
-Pattern found at position: 4
-Pattern found at position: 10
-Pattern found at position: 18</pre>
-              </div>
-          </div><!-- END COL -->
-    		</div>
-    	</div>
-    </section>
+	<footer class="footer">
+		<div class="footer_background" style="background-image:url(images/footer_background.png)"></div>
+		<div class="container">
+			<div class="row footer_row">
+				<div class="col">
+					<div class="footer_content">
+						<div class="row">
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">About</h2>
-              <p>Developed to Illustrate and help understand Boyer Moore Pattern Searching Algorithm with relevant examples.</p>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Presented by,</h2>
-              <h2 class="ftco-heading-2">Mrs. Disha Deotale</h5>
-            	<div class="block-23 mb-3">
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center" id="section2">
+							<div class="col-lg-3 footer_col">
 
-            <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
-  <p style="color: white;">www.boyermoore.ml</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+								<!-- Footer About -->
+								<div class="footer_section footer_about">
+									<div class="footer_logo_container">
+										<a href="#">
+											<div class="footer_logo_text">Abo<span>ut</span></div>
+										</a>
+									</div>
+									<div class="footer_about_text">
+										<p>To help understand how a pattern is searched in a string over a substring when provided using boyer moore algorithm and study its complexity.</p>
+									</div>
+								</div>
 
+							</div>
 
+							<div class="col-lg-3 footer_col">
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+								<!-- Footer Contact -->
+								<div class="footer_section footer_contact">
+								</div>
 
+							</div>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-  <script>
+							<div class="col-lg-3 footer_col">
+
+								<!-- Footer links -->
+								<div class="footer_section footer_links">
+								</div>
+
+							</div>
+
+							<div class="col-lg-3 footer_col clearfix">
+
+								<!-- Footer links -->
+								<div class="footer_section footer_mobile">
+									<p style="color: white;">Presented by Mrs. Disha Deotale</p>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row copyright_row">
+				<div class="col">
+					<div class="copyright d-flex flex-lg-row flex-column align-items-center justify-content-start">
+						<div class="cr_text">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</div>
+						<div class="ml-lg-auto cr_links">
+							<ul class="cr_list">
+								<li><a href="#">www.boyermoore.ml</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
 $(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("#about").on('click', function(event) {
+// Add smooth scrolling to all links
+$("#submitt").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
+	var x = document.getElementById("in").value;
+	var y = document.getElementById("in2").value;
+	if (x==null || x=="" || y==null || y=="")
+	{
+		alert("Please provide an input and do not leave any field blank.");
+	}
+	else {
+		var n = x.indexOf(y);
+		document.getElementById("app").innerHTML = "The substring was matched at position "+n;
+	}
+});
 });
 </script>
-  </body>
+</body>
 </html>
